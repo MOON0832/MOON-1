@@ -1,26 +1,25 @@
-/*#include <stdio.h>
+#include <stdio.h>
+#include <string.h>
 
 int main(){
+	int i,result;
+	char s[7][10]={"김정민", "이로운","정문정","지현숙","최지민","윤가영","주효정"};
+	char sname[10];
 
-	int a,b,i,j;
-	int rb,cb;
+	printf("학생 이름을 입력하시오:");
+	scanf("%s",sname);
 
-	printf("블록의 크기:");
-	scanf("%d", &a);
-
-	printf("블록의 개수:");
-	scanf("%d",&b);
-
-	for(i=0;i<a;i++){
-		for(j=0;j<b;j++){
-		if((rb+cb)%2==0){
-			printf("*");}
-		else{
-			printf(" ");}}
-
+	for(i=0;i<7;i++){
+		result = strcmp(s[i],sname);
+	if (result==0){
+		printf("%s는 우리반 학생입니다.",sname);
+		break;}
 
 	}
 
+	if(result!=0)
+		printf("%s는 우리반 학생이 아닙니다.",sname);
+	
 
 
 
@@ -28,28 +27,4 @@ int main(){
 
 
 
-}*/
-
-#include <stdio.h>
-int main(void) {
-	int i, j, n, bSize, bCount;
-	int rb, cb;  // 행블록, 열블록 번호
-
-	printf("블록의 크기: ");
-	scanf("%d", &bSize);
-	printf("블록의 개수: ");
-	scanf("%d", &bCount);
-
-	n = bSize * bCount;  // 전체 크기
-
-	for (i = 0; i < n; i++){
-		for (j = 0; j < n; j++){
-			rb = i / bSize;  // 행 블록 번호
-			cb = j / bSize;  // 열 블록 번호
-			if ((rb + cb) % 2 == 0)
-				printf("*");
-			else printf(" ");
-		}
-		printf("\n");
-	}
 }
